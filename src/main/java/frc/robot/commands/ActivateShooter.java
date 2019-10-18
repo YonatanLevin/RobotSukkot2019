@@ -14,6 +14,7 @@ import frc.robot.Robot;
 
 public class ActivateShooter extends Command {
   public ActivateShooter() {
+    requires(Robot.shooter);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
