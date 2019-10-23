@@ -29,8 +29,6 @@ public class DriveTrain extends DiffDrivetrain {
   // here. Call these from Commands.
   private WPI_TalonSRX masterLeft;
   private WPI_TalonSRX masterRight;
-  private WPI_TalonSRX middleLeft;
-  private WPI_TalonSRX middleRight;
   private WPI_VictorSPX rearLeft;
   private WPI_VictorSPX rearRight;
 
@@ -42,20 +40,14 @@ public class DriveTrain extends DiffDrivetrain {
 
     masterLeft = (WPI_TalonSRX)leftController;
     masterRight = (WPI_TalonSRX)rightController;
-    middleLeft = new WPI_TalonSRX(RobotMap.kMiddleLeftPort);
-    middleRight = new WPI_TalonSRX(RobotMap.kMiddleRightPort);
     rearLeft = new WPI_VictorSPX(RobotMap.kRearLeftPort);
     rearRight = new WPI_VictorSPX(RobotMap.kRearRightPort);
 
-    middleLeft.follow(masterLeft);
     rearLeft.follow(masterLeft);
-    middleRight.follow(masterRight);
     rearRight.follow(masterRight);
 
     masterLeft.setInverted(InvertType.None);
     masterRight.setInverted(InvertType.None);
-    middleLeft.setInverted(InvertType.FollowMaster);
-    middleRight.setInverted(InvertType.FollowMaster);
     rearLeft.setInverted(InvertType.FollowMaster);
     rearRight.setInverted(InvertType.FollowMaster);
 
@@ -66,18 +58,16 @@ public class DriveTrain extends DiffDrivetrain {
 
     this.setRotateDeadband(0.2);
 
-    this.masterLeft.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);
+    /*this.masterLeft.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);
     this.masterRight.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);
     this.masterLeft.setSensorPhase(true);
-    this.masterRight.setSensorPhase(true);
+    this.masterRight.setSensorPhase(true);*/
   }
 
   public void setNeutralMode(NeutralMode neutralMode)
   {
     this.masterLeft.setNeutralMode(neutralMode);
     this.masterRight.setNeutralMode(neutralMode);
-    this.middleLeft.setNeutralMode(neutralMode);
-    this.middleRight.setNeutralMode(neutralMode);
     this.rearLeft.setNeutralMode(neutralMode);
     this.rearRight.setNeutralMode(neutralMode);
   }

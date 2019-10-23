@@ -17,12 +17,10 @@ public class RobotMap {
 
   public static final int kDriverJoyPort = 0;
 
-  public static final int kFrontLeftPort = 0; // Talon SRX with encoder
-  public static final int kFrontRightPort = 1; // Talon SRX with encoder
-  public static final int kMiddleLeftPort = 5; // Talon SRX
-  public static final int kMiddleRightPort = 6; // Talon SRX
-  public static final int kRearLeftPort = 1; // Victor SPX
-  public static final int kRearRightPort = 3; // Victor SPX
+  public static final int kFrontLeftPort = 2; // Talon SRX with encoder
+  public static final int kFrontRightPort = 0; // Talon SRX with encoder
+  public static final int kRearLeftPort = 3; // Victor SPX
+  public static final int kRearRightPort = 1; // Victor SPX
 
   public static final int kShooterPort = 3;
 

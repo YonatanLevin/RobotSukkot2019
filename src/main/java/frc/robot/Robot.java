@@ -28,6 +28,8 @@ public class Robot extends TimedRobot {
   public static DriveTrain driveTrain;
   public static OI oi;
   public static Shooter shooter;
+
+
   /**
    * This function is run when the robot is first started up and should be
    * used for any initialization code.
@@ -36,7 +38,7 @@ public class Robot extends TimedRobot {
   public void robotInit() {
 
     this.driveTrain = new DriveTrain();
-    this.shooter = new Shooter();
+    //this.shooter = new Shooter();
     this.oi = new OI();
     
   }
