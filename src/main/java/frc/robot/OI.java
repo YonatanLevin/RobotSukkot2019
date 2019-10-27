@@ -8,7 +8,6 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import frc.robot.commands.ActivateShooter;
 import poroslib.triggers.SmartJoystick;
 
 /**
