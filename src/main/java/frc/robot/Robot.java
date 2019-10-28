@@ -15,7 +15,6 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.Reloader;
 import frc.robot.subsystems.Shooter;
@@ -44,7 +43,9 @@ public class Robot extends TimedRobot {
   public void robotInit() {
 
     Robot.driveTrain = new DriveTrain();
-    Robot.shooter = new MechSys(new Victor(RobotMap.kShooterPort));
+    Robot.driveTrain.SetIsReversed(true);
+    Robot.driveTrain.SetIsRanged(true);
+    Robot.shooter = new MechSys(new Victor(RobotMap.kLeftShooterPort), new Victor(RobotMap.kRightShooterPort));
     Robot.reloader = new Reloader();
     Robot.oi = new OI();
     

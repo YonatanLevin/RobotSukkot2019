@@ -14,10 +14,10 @@ public class SmartJoystick extends Joystick
 	private int quickTurn = 5;
 	
 	private int sliderAxis = 3;
-	private int oldMinSlider = 1;
-	private int oldMaxSlider = -1;
-	private int minSlider = 0;
-	private int maxSlider = 1;
+	private double oldMinSlider = 1;
+	private double oldMaxSlider = -1;
+	private double minSlider = 0;
+	private double maxSlider = 1;
 
 	public SmartJoystick(int port) 
 	{
@@ -87,7 +87,7 @@ public class SmartJoystick extends Joystick
 	}
 	
 	
-	public void setSlider(int sliderAxis, int newMin, int newMax, int oldMin, int oldMax)
+	public void setSlider(int sliderAxis, double newMin, double newMax, double oldMin, double oldMax)
 	{
 		this.sliderAxis = sliderAxis;
 		this.oldMinSlider = oldMin;

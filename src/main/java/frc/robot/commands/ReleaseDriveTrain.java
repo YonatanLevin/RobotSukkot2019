@@ -10,17 +10,16 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class CloseReload extends Command {
-  public CloseReload() {
+public class ReleaseDriveTrain extends Command {
+  public ReleaseDriveTrain() {
     // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
-    requires(Robot.reloader);
+    requires(Robot.driveTrain);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.reloader.closeLive();
+    Robot.driveTrain.arcadeDrive(0, 0, 0);
   }
 
   // Called repeatedly when this Command is scheduled to run

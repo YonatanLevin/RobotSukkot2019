@@ -8,6 +8,14 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.buttons.Trigger;
+import frc.robot.commands.CloseLeftSolenoid;
+import frc.robot.commands.CloseRightSolenoid;
+import frc.robot.commands.OpenLeftSolenoid;
+import frc.robot.commands.OpenRightSolenoid;
+import frc.robot.commands.Shoot;
+import frc.robot.triggers.ShootTrigger;
+import poroslib.commands.ActivateMechSys;
 import poroslib.triggers.SmartJoystick;
 
 /**
@@ -15,18 +23,46 @@ import poroslib.triggers.SmartJoystick;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
+  private int kShoot = 1;
+  private int kSpinShooter = 2;
+  private int kOpenLeftSolenoid = 5;
+  private int kCloseLeftSolenoid = 3;
+  private int kOpenRightSolenoid = 6;
+  private int kCloseRightSolenoid = 4;
+
+
 
   public static SmartJoystick driverJoy;
-  public static JoystickButton bShoot;
+  public static ShootTrigger bShoot;
+  public static JoystickButton bSpinShooter;
+
+  public static JoystickButton bOpenLeftSolenoid;
+  public static JoystickButton bCloseLeftSolenoid;
+  public static JoystickButton bOpenRightSolenoid;
+  public static JoystickButton bCloseRightSolenoid;
 
   public OI()
   {
-    this.driverJoy = new SmartJoystick(RobotMap.kDriverJoyPort);
-    this.driverJoy.setSpeedAxis(1);
-    this.driverJoy.setRotateAxis(4);
-    this.bShoot = new JoystickButton(this.driverJoy, 1);
+    driverJoy = new SmartJoystick(RobotMap.kDriverJoyPort);
+    driverJoy.setSpeedAxis(1);
+    driverJoy.setRotateAxis(2);
+    driverJoy.setSlider(3, 0, 0.5, 1, -1);
 
+    
+    bShoot = new ShootTrigger(OI.driverJoy, kShoot);
+    bSpinShooter = new JoystickButton(OI.driverJoy, kSpinShooter);
+    bOpenLeftSolenoid = new JoystickButton(OI.driverJoy, kOpenLeftSolenoid);
+    bCloseLeftSolenoid = new JoystickButton(OI.driverJoy, kCloseLeftSolenoid);
+    bOpenRightSolenoid = new JoystickButton(OI.driverJoy, kOpenRightSolenoid);
+    bCloseRightSolenoid = new JoystickButton(OI.driverJoy, kCloseRightSolenoid);
     //this.bShoot.whenActive(new ActivateShooter());
+    bShoot.whenPressed(new Shoot());
+    bSpinShooter.whileHeld(new ActivateMechSys(Robot.shooter, -0.8));
+
+    bOpenLeftSolenoid.whenPressed(new OpenLeftSolenoid());
+    bCloseLeftSolenoid.whenPressed(new CloseLeftSolenoid());
+    bOpenRightSolenoid.whileHeld(new OpenRightSolenoid());
+    bCloseRightSolenoid.whileHeld(new CloseRightSolenoid());
   }
   //// CREATING BUTTONS
   // One type of button is a joystick button which is any button on a

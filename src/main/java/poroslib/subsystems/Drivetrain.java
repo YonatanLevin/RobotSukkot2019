@@ -13,9 +13,6 @@ public abstract class Drivetrain extends Subsystem
 	private boolean isRanged = false;
 	
 	private boolean enabled = false;
-			
-	private double minSpeedValue = 0;
-	private double minRotateValue = 0;
 
 	
     public void SetIsReversed(boolean isReversed)
@@ -46,26 +43,6 @@ public abstract class Drivetrain extends Subsystem
     public boolean IsRanged()
     {
     	return this.isRanged;
-    }
-    
-    public void SetMinSpeedValue(double minSpeedValue)
-    {
-    	this.minSpeedValue = minSpeedValue;
-    }
-    
-    public double GetMinSpeedValue()
-    {
-    	return this.minSpeedValue;
-    }
-    
-    public void SetMinRotateValue(double minRotateValue)
-    {
-    	this.minRotateValue = minRotateValue;
-    }
-    
-    public double GetMinRotateValue()
-    {
-    	return this.minRotateValue;
     }
 
 	@Override

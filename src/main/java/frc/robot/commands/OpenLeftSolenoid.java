@@ -10,8 +10,8 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class CloseReload extends Command {
-  public CloseReload() {
+public class OpenLeftSolenoid extends Command {
+  public OpenLeftSolenoid() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.reloader);
@@ -20,7 +20,7 @@ public class CloseReload extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.reloader.closeLive();
+    Robot.reloader.openLeft();
   }
 
   // Called repeatedly when this Command is scheduled to run

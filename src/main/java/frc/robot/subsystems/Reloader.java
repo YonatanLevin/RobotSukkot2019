@@ -58,6 +58,7 @@ public class Reloader extends Subsystem {
 	{
     liveSolenoid.set(DoubleSolenoid.Value.kForward);
     lastOpened = Timer.getFPGATimestamp();
+    System.out.println("-----open------");
 	}
 	
 	public void closeLive()

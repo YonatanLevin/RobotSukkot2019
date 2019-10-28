@@ -26,7 +26,7 @@ public class Shooter extends Subsystem {
   // here. Call these from Commands.
   public Shooter()
   {
-    master = new WPI_TalonSRX(RobotMap.kShooterPort);
+    master = new WPI_TalonSRX(RobotMap.kLeftShooterPort);//Not the right ports
     
     master.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute);
 

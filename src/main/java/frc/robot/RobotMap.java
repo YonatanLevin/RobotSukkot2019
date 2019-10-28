@@ -22,15 +22,16 @@ public class RobotMap {
   public static final int kRearLeftPort = 3; // Victor SPX
   public static final int kRearRightPort = 0; // Victor SPX
 
-  public static final int kShooterPort = 3;
+  public static final int kLeftShooterPort = 4;
+  public static final int kRightShooterPort = 5;
 
-public static int forwardLeftSolenoid;
+public static int forwardLeftSolenoid = 0;
 
-public static int reverseLeftSolenoid;
+public static int reverseLeftSolenoid = 1;
 
-public static int forwardRightSolenoid;
+public static int forwardRightSolenoid = 7;
 
-public static int reverseRightSolenoid;
+public static int reverseRightSolenoid = 6;
 
   // For example to map the left and right motors, you could define the
   // following variables to use with your drivetrain subsystem.
